@@ -1,5 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="boxture">
+    <listeners>
+        <listener class-name="com.sel.tests.Listeners"/>
+    </listeners>
     <test name="loginPurchase">
         <parameter name="username1" value="aviraj@boxture.com"></parameter>
         <parameter name="password" value="test123"></parameter>
