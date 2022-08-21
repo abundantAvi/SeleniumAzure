@@ -89,48 +89,20 @@ public class Boxture_Purchase {
             act.moveToElement(mouseHover).perform();
             Thread.sleep(3000);
             this.receiveClick.click();
-        }else{
+        }
+        else{
 
         if (confirming.isEnabled()) {
+            this.driver.navigate().refresh();
+            this.driver.navigate().refresh();
+            Thread.sleep(3000);
             System.out.println("inside confirming");
             Actions act = new Actions(driver);
             act.moveToElement(mouseHover).perform();
             Thread.sleep(3000);
             this.receiveClick.click();
 
-            if (confirming.isEnabled()) {
-                this.driver.navigate().refresh();
-                Thread.sleep(5000);
-                System.out.println("inside confirming");
-                if (confirming.isEnabled()) {
-                    this.driver.navigate().refresh();
-                    Thread.sleep(5000);
-                    System.out.println("inside confirming");
-                    if (confirming.isEnabled()) {
-                        this.driver.navigate().refresh();
-                        Thread.sleep(5000);
-                        System.out.println("inside confirming");
-                    } else {
-                        System.out.println("inside pending");
-                        act.moveToElement(mouseHover).perform();
-                        Thread.sleep(3000);
-                        this.receiveClick.click();
-                    }
 
-                } else {
-                    System.out.println("inside pending");
-                    act.moveToElement(mouseHover).perform();
-                    Thread.sleep(3000);
-                    this.receiveClick.click();
-                }
-
-
-            } else {
-                System.out.println("inside pending");
-                act.moveToElement(mouseHover).perform();
-                Thread.sleep(3000);
-                this.receiveClick.click();
-            }
         }}
 
         Thread.sleep(3000);
