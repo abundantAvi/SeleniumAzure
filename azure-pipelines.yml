@@ -19,7 +19,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'clean install -DBROWSER=firefox -DHUB_HOST=127.0.0.1'
+    goals: 'clean install'
 - task: CopyFiles@2
   inputs:
     Contents: '**'
