@@ -19,4 +19,4 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'mvn clean install -DBROWSER=firefox -DHUB_HOST=localhost'
+    goals: 'clean install -DBROWSER=firefox -DHUB_HOST=localhost'
