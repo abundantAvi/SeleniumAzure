@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -59,6 +60,14 @@ public class BaseTest {
 
     }
 
+    public String getScreenShotPath(String testCaseName, WebDriver driver) throws IOException {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        String destinationFile = System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png";
+        FileUtils.copyFile(source, new File(destinationFile));
+        return destinationFile;
+
+    }
 
     @AfterTest
     public void quitBrowser() {

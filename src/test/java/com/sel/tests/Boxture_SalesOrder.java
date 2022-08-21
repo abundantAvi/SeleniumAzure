@@ -1,14 +1,23 @@
 package com.sel.tests;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.sel.pages.Boxture_LoginPage;
 import com.sel.pages.Boxture_Sales;
 import com.sel.pages.Sidebar_Click;
+import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import resources.ExtentReporterNG;
 import tests.BaseTest;
 
 import java.awt.*;
+import java.io.IOException;
 
 
 public class Boxture_SalesOrder extends BaseTest {
@@ -69,5 +78,6 @@ public class Boxture_SalesOrder extends BaseTest {
         createPage.pickAfterScan();
 
     }
+
 
 }
