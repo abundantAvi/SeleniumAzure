@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="boxture">
+    <test name="loginPurchase">
+        <parameter name="username1" value="aviraj@boxture.com"></parameter>
+        <parameter name="password" value="test123"></parameter>
+        <classes>
+            <class name="com.sel.tests.Boxture_PurchaseOrder"></class>
+        </classes>
+    </test>
+</suite>
