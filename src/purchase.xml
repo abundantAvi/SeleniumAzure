@@ -3,6 +3,8 @@
     <test name="loginPurchase">
         <parameter name="username1" value="aviraj@boxture.com"></parameter>
         <parameter name="password" value="test123"></parameter>
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="headlessMode" value="headless"></parameter>
         <classes>
             <class name="com.sel.tests.Boxture_PurchaseOrder"></class>
         </classes>

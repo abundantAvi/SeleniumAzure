@@ -1,15 +1,20 @@
 package tests;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,44 +28,35 @@ public class BaseTest {
     private Properties prop;
 
     @BeforeTest
-    public void setupDriver(ITestContext ctx)throws IOException{
+    @Parameters({"browser","headlessMode"})
+    public void setupDriver(String browser, String headlessMode)throws IOException{
+    if(browser.equalsIgnoreCase("chrome")){
+        WebDriverManager.chromedriver().setup();
+        if (headlessMode.contains("headless")) {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("headless");
+            driver = new ChromeDriver(options);
+        } else {
+            driver = new ChromeDriver();
+        } // execute in chrome driver
+    }
+    else if (browser.equalsIgnoreCase("firefox")){
+        WebDriverManager.firefoxdriver().setup();
+        if (headlessMode.contains("headless")) {
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("headless");
+            driver = new FirefoxDriver(options);
+        } else {
+            driver = new FirefoxDriver();
+        } // execute in chrome driver
 
-//BROWSER=>chrome/firefox
-//HUB_HOST=>localhost/10.0.1.3/hostname
+    }
+    else if (browser.equals("IE")) {
+        WebDriverManager.edgedriver().setup();
+        driver = new EdgeDriver();
+        // IE code
+    }
 
-//Stringhost;
-        MutableCapabilities dc;
-
-//Propertiesproperties=newProperties();
-//Stringfile="data.properties";
-//InputStreaminputstream=getClass().getClassLoader().getResourceAsStream(file);
-//properties.load(inputstream);
-        String browserName=System.getProperty("BROWSER");
-        String host=System.getProperty("HUB_HOST");
-
-
-        if(browserName!=null&&
-                browserName.equalsIgnoreCase("firefox")){
-            System.out.println("firefoxloading...");
-            dc=new FirefoxOptions();
-        }else{
-            dc=new ChromeOptions();
-            System.out.println("chromeloading...");
-
-        }
-
-
-        String testName=ctx.getCurrentXmlTest().getName();
-
-        String completeUrl="http://"+host+":4444/wd/hub";
-        System.out.println(host);
-        dc.setCapability("test",testName);
-        this.driver=new RemoteWebDriver(new URL(completeUrl),dc);
-
-        TakesScreenshot ts=(TakesScreenshot)driver;
-        File source=ts.getScreenshotAs(OutputType.FILE);
-        //String destinationFile=System.getProperty("user.dir")+"\\reports\\"+testCaseName+".png";
-        //FileUtils.copyFile(source,new File(destinationFile));
     }
 
 
