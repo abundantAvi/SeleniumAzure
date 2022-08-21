@@ -94,7 +94,7 @@
                 <version>2.20</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/purchase.xml</suiteXmlFile>
+                        <suiteXmlFile>purchase.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
