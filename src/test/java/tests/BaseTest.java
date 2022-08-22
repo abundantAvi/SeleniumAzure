@@ -72,17 +72,16 @@ public class BaseTest {
 //
 //        return destinationFile;
 //    }
-//        @AfterTest
-//        public String getScreenShotPath(String testCaseName,WebDriver driver ) throws IOException {
-//        Calendar calendar = Calendar.getInstance();
-//        SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyy_hh_mm_ss");
-//        TakesScreenshot ts = (TakesScreenshot) driver;
-//        File source = ts.getScreenshotAs(OutputType.FILE);
-//        String destinationFile = System.getProperty("user.dir") + "\\reports\\"+testCaseName+formater.format(calendar.getTime())+".png";
-//        FileUtils.copyFile(source, new File(destinationFile));
-//        return destinationFile;
-//
-//    }
+        public String getScreenShotPath(String testCaseName,WebDriver driver ) throws IOException {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyy_hh_mm_ss");
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        String destinationFile = System.getProperty("user.dir") + "\\reports\\"+testCaseName+formater.format(calendar.getTime())+".png";
+        FileUtils.copyFile(source, new File(destinationFile));
+        return destinationFile;
+
+    }
 
     @AfterTest
     public void quitBrowser() {
