@@ -22,10 +22,14 @@ steps:
     goals: 'clean install'
 - task: CopyFiles@2
   inputs:
-    Contents: '**/target/reports/*.html'
+    Contents: '**/reports/*.html'
     TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Test Result HTML file'
     publishLocation: 'Container'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
