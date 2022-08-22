@@ -28,7 +28,7 @@ import java.util.Properties;
 
 public class BaseTest {
 
-    public static WebDriver driver;
+    public WebDriver driver;
     private Properties prop;
 
 
