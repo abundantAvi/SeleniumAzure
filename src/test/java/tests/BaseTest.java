@@ -37,7 +37,7 @@ public class BaseTest {
     public void setupDriver(String browser, String headlessMode)throws IOException{
     if(browser.equalsIgnoreCase("chrome")){
         WebDriverManager.chromedriver().setup();
-        if (headlessMode.contains("headless1")) {
+        if (headlessMode.contains("headless")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("headless");
             driver = new ChromeDriver(options);
