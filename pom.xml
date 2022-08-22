@@ -93,10 +93,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.1</version>
                 <configuration>
-                    <forKCount>0</forKCount>
                     <suiteXmlFiles>
-<!--                        <suiteXmlFile>purchase.xml</suiteXmlFile>-->
-                        <suiteXmlFile>sales.xml</suiteXmlFile>
+                        <suiteXmlFile>purchase.xml</suiteXmlFile>
+<!--                        <suiteXmlFile>sales.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
