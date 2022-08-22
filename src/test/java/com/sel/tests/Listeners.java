@@ -44,7 +44,7 @@ public class Listeners extends BaseTest implements ITestListener {
 			
 		}
 		try {
-			extentTest.get().addScreenCaptureFromPath(getScreenShotPath(testMethodName,driver), result.getMethod().getMethodName());
+			extentTest.get().addScreenCaptureFromPath(getScreenShotPath(testMethodName, driver), result.getMethod().getMethodName());
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

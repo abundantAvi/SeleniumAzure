@@ -4,6 +4,7 @@ import com.sel.pages.Boxture_LoginPage;
 import com.sel.pages.Boxture_Purchase;
 import com.sel.pages.Boxture_Sales;
 import com.sel.pages.Sidebar_Click;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -15,8 +16,6 @@ public class Boxture_PurchaseOrder extends BaseTest {
 
     private String username;
     private String password;
-
-
 
     @BeforeTest
     @Parameters({"username1", "password"})

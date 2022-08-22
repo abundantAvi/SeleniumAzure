@@ -1,10 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="boxture">
     <test name="loginSales">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="headlessMode" value="headless"></parameter>
         <parameter name="username1" value="aviraj@boxture.com"></parameter>
         <parameter name="password" value="test123"></parameter>
         <parameter name="customer" value="box"></parameter>
         <parameter name="product" value="BXT-SNXX29999181"></parameter>
+        <parameter name="tote" value="tote-845"></parameter>
         <classes>
             <class name="com.sel.tests.Boxture_SalesOrder"></class>
         </classes>

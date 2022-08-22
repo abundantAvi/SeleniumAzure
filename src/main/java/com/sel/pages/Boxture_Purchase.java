@@ -82,7 +82,8 @@ public class Boxture_Purchase {
 
     public void receive(String box, String prod) throws InterruptedException {
         Thread.sleep(6000);
-
+        this.driver.navigate().refresh();
+        this.driver.navigate().refresh();
         if (pending.isEnabled()) {
             System.out.println("inside pending");
             Actions act = new Actions(driver);
@@ -90,9 +91,7 @@ public class Boxture_Purchase {
             Thread.sleep(3000);
             this.receiveClick.click();
         }
-        else{
-
-        if (confirming.isEnabled()) {
+        else if (confirming.isEnabled()) {
             this.driver.navigate().refresh();
             this.driver.navigate().refresh();
             Thread.sleep(3000);
@@ -103,7 +102,7 @@ public class Boxture_Purchase {
             this.receiveClick.click();
 
 
-        }}
+        }
 
         Thread.sleep(3000);
         this.packingMaterial.click();

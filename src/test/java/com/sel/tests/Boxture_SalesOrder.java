@@ -22,13 +22,12 @@ import java.io.IOException;
 
 public class Boxture_SalesOrder extends BaseTest {
 
-
     private String username;
     private String password;
     private String customer;
     private String product;
     private String tote;
-
+    Boxture_LoginPage loginPage;
 
     @BeforeTest
     @Parameters({"username1", "password", "customer", "product", "tote"})
@@ -42,9 +41,9 @@ public class Boxture_SalesOrder extends BaseTest {
     }
 
     @Test
-    public void loginPage() throws AWTException, InterruptedException {
+    public void loginPageValidation() throws AWTException, InterruptedException {
 
-        Boxture_LoginPage loginPage = new Boxture_LoginPage(driver);
+        loginPage = new Boxture_LoginPage(driver);
         loginPage.loginUrl();
         Thread.sleep(3000);
         loginPage.username_enter(username);
@@ -52,7 +51,7 @@ public class Boxture_SalesOrder extends BaseTest {
         loginPage.login_buttonClick();
     }
 
-    @Test(dependsOnMethods = {"loginPage"})
+    @Test(dependsOnMethods = {"loginPageValidation"})
     public void sidebarClicks() {
         Sidebar_Click sidebarclick = new Sidebar_Click(driver);
         sidebarclick.order_click();

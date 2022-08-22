@@ -11,7 +11,8 @@ import java.awt.*;
 
 public class Boxture_LoginPage {
 
-    private WebDriver driver;
+
+    public WebDriver driver;
     private WebDriverWait wait;
 
     @FindBy(css = "#user_email")

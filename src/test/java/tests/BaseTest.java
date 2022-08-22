@@ -16,24 +16,28 @@ import org.testng.ITestContext;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Properties;
 
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    public static WebDriver driver;
     private Properties prop;
 
-    @BeforeTest
+
     @Parameters({"browser","headlessMode"})
+    @BeforeTest
     public void setupDriver(String browser, String headlessMode)throws IOException{
     if(browser.equalsIgnoreCase("chrome")){
         WebDriverManager.chromedriver().setup();
-        if (headlessMode.contains("headless")) {
+        if (headlessMode.contains("headless1")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("headless");
             driver = new ChromeDriver(options);
@@ -59,11 +63,24 @@ public class BaseTest {
     }
 
     }
-
-    public String getScreenShotPath(String testCaseName, WebDriver driver) throws IOException {
+//    public String getScreenShotPath(String testCaseName,WebDriver driver) throws IOException
+//    {
+//        Calendar calendar = Calendar.getInstance();
+//        SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyy_hh_mm_ss");
+//        //String png= System.currentTimeMillis()+ ".png";
+//        TakesScreenshot ts=(TakesScreenshot) driver;
+//        File source =ts.getScreenshotAs(OutputType.FILE);
+//        String destinationFile = System.getProperty("user.dir")+"\\reports\\"+testCaseName+formater.format(calendar.getTime())+".png";
+//        FileUtils.copyFile(source,new File(destinationFile));
+//
+//        return destinationFile;
+//    }
+    public String getScreenShotPath(String testCaseName,WebDriver driver ) throws IOException {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyy_hh_mm_ss");
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
-        String destinationFile = System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png";
+        String destinationFile = System.getProperty("user.dir") + "\\reports\\"+testCaseName+formater.format(calendar.getTime())+".png";
         FileUtils.copyFile(source, new File(destinationFile));
         return destinationFile;
 
@@ -74,5 +91,3 @@ public class BaseTest {
         this.driver.quit();
     }
 }
-
-
