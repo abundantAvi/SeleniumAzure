@@ -87,33 +87,36 @@
         </resources>
         <plugins>
 
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-surefire-plugin</artifactId>
-                            <version>2.22.1</version>
-                            <configuration>
-                                <forkCount>0</forkCount>
-                                <suiteXmlFiles>
-                                    <suiteXmlFile>purchase.xml</suiteXmlFile>
-            <!--                        <suiteXmlFile>sales.xml</suiteXmlFile>-->
-                                </suiteXmlFiles>
-                            </configuration>
-                        </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-surefire-plugin</artifactId>-->
+            <!--                <version>2.22.1</version>-->
+            <!--                <configuration>-->
+            <!--                    <forkCount>0</forkCount>-->
+            <!--                    <suiteXmlFiles>-->
+            <!--                        <suiteXmlFile>purchase.xml</suiteXmlFile>-->
+            <!--&lt;!&ndash;                        <suiteXmlFile>sales.xml</suiteXmlFile>&ndash;&gt;-->
+            <!--                    </suiteXmlFiles>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
 
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>3.0.0-M3</version>-->
-<!--                <configuration>-->
-<!--                    <forkCount>0</forkCount>-->
-<!--                    <suiteXmlFiles>-->
-<!--                        <suiteXmlFile>purchase.xml</suiteXmlFile>-->
-<!--                    </suiteXmlFiles>-->
-<!--                    <testFailureIgnore>true</testFailureIgnore>-->
-<!--                    <shutdown>kill</shutdown> &lt;!&ndash; Use it if required&ndash;&gt;-->
-<!--                </configuration>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <configuration>
+                    <forkCount>0</forkCount>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>purchase.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <shutdown>kill</shutdown> <!-- Use it if required-->
+                </configuration>
 
-<!--            </plugin>-->
+            </plugin>
+
+
+            
         </plugins>
     </build>
 
