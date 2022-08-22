@@ -13,8 +13,8 @@ public class ExtentReporterNG {
 	{
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyy_hh_mm_ss");
-		String path =System.getProperty("user.dir")+"\\reports\\index"+formater.format(calendar.getTime())+".html";
-		//String path =System.getProperty("user.dir")+"\\reports\\index.html";
+//		String path =System.getProperty("user.dir")+"\\reports\\index"+formater.format(calendar.getTime())+".html";
+		String path =System.getProperty("user.dir")+"\\reports\\index.html";
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
 		reporter.config().setReportName("Web Automation Results");
 		reporter.config().setDocumentTitle("Test Results");
