@@ -22,7 +22,7 @@ steps:
     goals: 'clean install'
 - task: CopyFiles@2
   inputs:
-    Contents: '**/*.html'
+    Contents: '**/emailable-report.html'
     TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
