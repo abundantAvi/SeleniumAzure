@@ -21,7 +21,5 @@ public class ExtentReporterNG {
 		extent.attachReporter(reporter);
 		extent.setSystemInfo("Tester", "AVI");
 		return extent;
-
-
 	}
 }
