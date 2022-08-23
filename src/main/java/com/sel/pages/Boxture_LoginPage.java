@@ -44,7 +44,7 @@ public class Boxture_LoginPage {
 //            robot.keyRelease(KeyEvent.VK_CONTROL);
 //            driver.manage().window().maximize();
 
-        }
+//        }
 
         this.wait.until(ExpectedConditions.visibilityOf(this.username));
     }
