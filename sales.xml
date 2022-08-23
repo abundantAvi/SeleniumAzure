@@ -6,8 +6,8 @@
         <parameter name="username1" value="aviraj@boxture.com"></parameter>
         <parameter name="password" value="test123"></parameter>
         <parameter name="customer" value="box"></parameter>
-        <parameter name="product" value="BXT-SNXX29999181"></parameter>
-        <parameter name="tote" value="tote-845"></parameter>
+        <parameter name="product" value="Auto Test 123"></parameter>
+        <parameter name="tote" value="tote-855"></parameter>
         <classes>
             <class name="com.sel.tests.Boxture_SalesOrder"></class>
         </classes>

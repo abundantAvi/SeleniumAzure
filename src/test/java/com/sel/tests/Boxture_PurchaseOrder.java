@@ -44,7 +44,7 @@ public class Boxture_PurchaseOrder extends BaseTest {
         Boxture_Purchase clickOnPurchaseOrder = new Boxture_Purchase(driver);
         clickOnPurchaseOrder.new_purchase_Order();
         clickOnPurchaseOrder.destination("BTX-ALM");
-        clickOnPurchaseOrder.product("BXT-SNXX29999270");
+        clickOnPurchaseOrder.product("Auto Test 123");
         clickOnPurchaseOrder.createPurchase();
         Boxture_Sales createPage = new Boxture_Sales(driver);
         Thread.sleep(5000);

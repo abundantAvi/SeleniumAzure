@@ -1,9 +1,6 @@
 package com.sel.pages;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -42,7 +39,6 @@ public class Boxture_Sales {
     private WebElement pickClick;
 
 
-
     @FindBy(xpath = "//a[@id='pick_lists']")
     private WebElement pick;
 
@@ -61,9 +57,10 @@ public class Boxture_Sales {
     private WebElement pickAllItems;
     @FindBy(xpath = "//main/div/div/div/div/div/div/div[2]/h3/satis-copyable")
     private WebElement orderNumNew;
-//    @FindBy(xpath = "//td[normalize-space()='Order #+ "number"+']")
+    //    @FindBy(xpath = "//td[normalize-space()='Order #+ "number"+']")
 //    private WebElement picklistClick;
-
+    @FindBy(xpath = "//input[@placeholder='Search By Order ID, Type, State, Customer Reference Number, PO Number and Tote']")
+    private WebElement orderFieldClick;
     @FindBy(css = "tr[class='cursor-pointer bg-white dark:bg-gray-800'] td:nth-child(2)")
     private WebElement pickListClick;
     @FindBy(css = "div[class='ml-4 mt-4 flex-shrink-0']")
@@ -75,6 +72,12 @@ public class Boxture_Sales {
     @FindBy(xpath = "//span[@title='translation missing: en.pick_lists.assigns.new.assign']")
     private WebElement assignFinalClick;
 
+    @FindBy(xpath = "//td[normalize-space()='Boxture Acceptance Test']")
+    private WebElement orderClick;
+    @FindBy(xpath = "//span[normalize-space()='Cancel']")
+    private WebElement cancelOrder;
+    @FindBy(xpath = "//button[normalize-space()='Cancel']")
+    private WebElement buttonCancel;
 
     public Boxture_Sales(WebDriver driver) {
 
@@ -123,6 +126,8 @@ public class Boxture_Sales {
         this.ellipsis.click();
         this.wait.until(ExpectedConditions.visibilityOf(this.confirmOrder));
         this.confirmOrder.click();
+
+
 //        for (int i = 0; i <= 5; i++) {
 //            driver.navigate().refresh();
 //            Thread.sleep(3000);
@@ -174,6 +179,7 @@ public class Boxture_Sales {
 
 
     }
+
     public void pickListClick() throws InterruptedException {
         Thread.sleep(5000);
 
@@ -193,7 +199,7 @@ public class Boxture_Sales {
         this.user.sendKeys("av");
         String a = user.getText();
         Thread.sleep(3000);
-        System.out.println("Assigned Picker "+ a);
+        System.out.println("Assigned Picker " + a);
         this.assignFinalClick.click();
     }
 
@@ -219,7 +225,7 @@ public class Boxture_Sales {
 
     }
 
-    public void pickAfterScan(){
+    public void pickAfterScan() {
         Actions action = new Actions(driver);
         this.wait.until(ExpectedConditions.visibilityOf(this.swipe));
         // ((JavascriptExecutor) driver).executeScript("scroll(0,600)");
@@ -230,4 +236,30 @@ public class Boxture_Sales {
         System.out.println("Picked one item");
 
     }
+
+    public void order1(String orderNum) throws InterruptedException {
+        this.wait.until(ExpectedConditions.visibilityOf(this.orderFieldClick));
+        this.orderFieldClick.click();
+        this.orderFieldClick.clear();
+        this.orderFieldClick.sendKeys(orderNum, Keys.ENTER);
+        Thread.sleep(3000);
+    }
+
+    public void orderClick() throws InterruptedException {
+        this.wait.until(ExpectedConditions.visibilityOf(this.orderClick));
+        this.orderClick.click();
+        Thread.sleep(5000);
+
+    }
+
+    public void cancelTheOrder() throws InterruptedException {
+        this.wait.until(ExpectedConditions.visibilityOf(this.ellipsis));
+        this.ellipsis.click();
+        this.wait.until(ExpectedConditions.visibilityOf(this.cancelOrder));
+        this.cancelOrder.click();
+        Thread.sleep(2000);
+        this.wait.until(ExpectedConditions.visibilityOf(this.buttonCancel));
+        this.buttonCancel.click();
+    }
+
 }

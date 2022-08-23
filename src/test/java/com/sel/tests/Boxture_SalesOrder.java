@@ -6,6 +6,7 @@ import com.aventstack.extentreports.Status;
 import com.sel.pages.Boxture_LoginPage;
 import com.sel.pages.Boxture_Sales;
 import com.sel.pages.Sidebar_Click;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -28,6 +29,8 @@ public class Boxture_SalesOrder extends BaseTest {
     private String product;
     private String tote;
     Boxture_LoginPage loginPage;
+
+    public String orderNum;
 
     @BeforeTest
     @Parameters({"username1", "password", "customer", "product", "tote"})
@@ -60,14 +63,14 @@ public class Boxture_SalesOrder extends BaseTest {
     }
 
     @Test(dependsOnMethods = {"sidebarClicks"})
-    public void salesOrdercontents() throws InterruptedException {
+    public void salesOrdercontents() throws InterruptedException, AWTException {
         Boxture_Sales createPage = new Boxture_Sales(driver);
         createPage.customer(customer);
         createPage.product(product);
         createPage.createSales();
         Thread.sleep(5000);
         createPage.orderNumGenerated();
-        String orderNum = createPage.orderNumGenerated();
+        orderNum = createPage.orderNumGenerated();
         System.out.println(orderNum);
         createPage.confirmOrderClick();
         createPage.pickOnClick();
@@ -75,8 +78,25 @@ public class Boxture_SalesOrder extends BaseTest {
         createPage.mobileWebsite();
         createPage.scanTote(tote);
         createPage.pickAfterScan();
+        Thread.sleep(3000);
+        this.driver.get("https://oms.staging.boxture.com/");
+        Sidebar_Click sidebarclick = new Sidebar_Click(driver);
+        sidebarclick.order_double_click();
+        System.out.println(orderNum);
+        createPage.order1(orderNum);
+        createPage.orderClick();
+        createPage.cancelTheOrder();
+
 
     }
+    @Test(dependsOnMethods = {"salesOrdercontents"})
+    public void unPick() throws InterruptedException, AWTException {
 
+        //loginPage = new Boxture_LoginPage(driver);
+//        Thread.sleep(3000);
+//        loginPage.username_enter(username);
+//        loginPage.password_enter(password);
+//        loginPage.login_buttonClick();
 
+    }
 }

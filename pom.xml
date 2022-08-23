@@ -109,6 +109,8 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>purchase.xml</suiteXmlFile>
                         <suiteXmlFile>sales.xml</suiteXmlFile>
+                        <suiteXmlFile>inventory.xml</suiteXmlFile>
+
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                     <shutdown>kill</shutdown> <!-- Use it if required-->
