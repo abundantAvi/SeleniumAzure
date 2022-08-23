@@ -32,17 +32,17 @@ public class Boxture_LoginPage {
 
     public void loginUrl() throws AWTException {
         this.driver.get("https://oms.staging.boxture.com/");
-        Robot robot = new Robot();
+//        Robot robot = new Robot();
         this.driver.manage().window().maximize();
 
         System.out.println("About to zoom in");
-
-        for (int i = 0; i < 3; i++) {
-            robot.keyPress(KeyEvent.VK_CONTROL);
-            robot.keyPress(KeyEvent.VK_SUBTRACT);
-            robot.keyRelease(KeyEvent.VK_SUBTRACT);
-            robot.keyRelease(KeyEvent.VK_CONTROL);
-            driver.manage().window().maximize();
+//
+//        for (int i = 0; i < 3; i++) {
+//            robot.keyPress(KeyEvent.VK_CONTROL);
+//            robot.keyPress(KeyEvent.VK_SUBTRACT);
+//            robot.keyRelease(KeyEvent.VK_SUBTRACT);
+//            robot.keyRelease(KeyEvent.VK_CONTROL);
+//            driver.manage().window().maximize();
 
         }
 
